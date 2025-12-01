@@ -53,15 +53,30 @@ function rendrenotes() {
 
     Notes.forEach(Note => {
         main_container.innerHTML += `<div class="note-container">
-           <h3 class="note-title">${Note.title}</h3>
-           <p class="desc">${Note.desc}</p>
+           <div class = "note-header">
+                <h3 class="note-title">${Note.title}</h3>
+                <div class="modify-container">
+                    <i class="fa-solid fa-pen-to-square" id="edit"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </div>
+                <p class="desc">${Note.desc}</p>
         </div>`;
     });
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
+
+document.addEventListener("DOMContentLoaded", () => {
+    //To display already added  notes.
     Notes = JSON.parse(localStorage.getItem("notes")) || [];
     rendrenotes();
-    MyDialog.showModal();
 
+    //To modify the notes
+    var btn_edit = document.querySelector('#edit');
+    btn_edit.addEventListener('click', () => {
+        // Notes.filter(ele => ele.id === this.id);
+        // note_title.innerHTML = this.title;
+        MyDialog.showModal();
+    });
 });
+

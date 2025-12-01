@@ -74,6 +74,9 @@ dialog[open] {
 .form-group input{
     padding: 0.8rem 0rem 0.8rem 0.5rem;
 }
+textarea{
+    padding: 0.5rem 0 0 0.5rem ;
+}
 
 .action-btn{
     display: flex;
@@ -81,15 +84,13 @@ dialog[open] {
     gap: 10px;
 }
 
-
-
 .note-container {
     width: 250px;
     box-shadow: rgba(101, 101, 222, 0.34) 0px 7px 29px 0px;
     margin: 0rem 2rem 2rem 0rem;
     min-height: 15rem;
     color: var(--color-dark);
-    padding: 2rem 0rem 0rem 2rem;
+    padding: 2rem 1rem 0rem 2rem;
     border-radius: 1rem;
 }
 
@@ -126,3 +127,16 @@ dialog[open] {
     margin-left: 1rem;
 }
 
+.note-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modify-container{  
+   display: flex;
+   gap: 0.8rem;
+}
+
+.fa-pen-to-square,.fa-trash{
+    cursor: pointer ;
+}
