@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Notes | Home</title>
+    <!-- css here -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font linking here -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Quick Notes.</h1>
+        <button class="btn-add">Add Note </button>
+    </header>
+
+    <div class="main-container">
+
+    </div>
+
+    <dialog>
+        <div class="dialog-header">
+            <h2>Add a new note</h2>
+            <span class="close-dialog">X</span>
+        </div>
+        <form action="">
+            <div class="form-group">
+                <label for="note-title">Title</label>
+                <input type="text" id="note-title">
+            </div>
+
+            <div class="form-group">
+                <label for="note-desc">Description</label>
+                <textarea type="text" id="note-desc" rows="5"></textarea>
+            </div>
+            <div class="action-btn">
+                <button type="button" class="btn-close-dialog">Cancel</button>
+                <button class="btn-submit">Add Note</button>
+            </div>
+
+        </form>
+    </dialog>
+
+    <!-- main js linking here -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

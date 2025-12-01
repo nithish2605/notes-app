@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    font-family: "Roboto", sans-serif;
+    --color-light: #f4f7ff;
+    --color-dark: #000;
+    --color-blue: #256EFF;
+    --color-blue-hover: #0753eb;
+}
+
+body {
+    background-color: var(--color-light);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0rem;
+    color: var(--color-dark);
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0rem 2rem;
+}
+
+dialog {
+    border: none;
+    width: 400px;
+    max-width: 90%;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+dialog[open] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.close-dialog {
+    cursor: pointer;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label{
+    margin-bottom: 1rem;
+}
+
+.form-group input{
+    padding: 0.8rem 0rem 0.8rem 0.5rem;
+}
+
+.action-btn{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+
+
+.note-container {
+    width: 250px;
+    box-shadow: rgba(101, 101, 222, 0.34) 0px 7px 29px 0px;
+    margin: 0rem 2rem 2rem 0rem;
+    min-height: 15rem;
+    color: var(--color-dark);
+    padding: 2rem 0rem 0rem 2rem;
+    border-radius: 1rem;
+}
+
+.btn-add,.btn-submit{
+    background-color: var(--color-blue);
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-blue-hover);
+        transition: all 0.3s;
+    }
+}
+
+.btn-close-dialog{
+    background-color: var(--color-dark);
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.note-title {
+    margin-bottom: 1rem;
+}
+
+.desc {
+    margin-left: 1rem;
+}
+
