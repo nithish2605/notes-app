@@ -8,11 +8,10 @@ let btn_close_dialog = document.querySelector('.btn-close-dialog');
 let close_dialog = document.querySelector('.close-dialog');
 let btn_submit = document.querySelector('.btn-submit');
 
-
+//To display already added  notes when it  is refreshed also
 document.addEventListener("DOMContentLoaded", () => {
-    //To display already added  notes.
     Notes = JSON.parse(localStorage.getItem("notes")) || [];
-    rendrenotes();
+    rendernotes();
 });
 
 
@@ -64,10 +63,10 @@ btn_submit.addEventListener('click', (e) => {
     ClearAll();
     MyDialog.close();
     localStorage.setItem("notes", JSON.stringify(Notes));
-    rendrenotes();
+    rendernotes();
 });
 
-function rendrenotes() {
+function rendernotes() {
     main_container.innerHTML = "";
     Notes.forEach(Note => {
         main_container.innerHTML += `<div class="note-container">
@@ -83,11 +82,15 @@ function rendrenotes() {
     });
     editnote();
 
+    //To delete a Note
     var del_note = document.querySelectorAll('.del');
     del_note.forEach(note => {
         note.addEventListener('click', () => {
             let id = note.getAttribute('data-id');
-            Deletnote(id);
+            let Indexof_DelId = Notes.findIndex(n => n.id == id);
+            Notes.splice(Indexof_DelId, 1);
+            localStorage.setItem("notes", JSON.stringify(Notes));
+            rendernotes();
         });
     });
 }
@@ -102,22 +105,14 @@ function editnote() {
         })
     });
 }
-
 let existing_id = null;
 
 function StartEditNote(id) {
     existing_id = id;
-
     let curr_Note = Notes.find(n => n.id == id);
     note_title.value = curr_Note.title;
     note_desc.value = curr_Note.desc;
-    // let dialog_title = document.querySelector('.dialog-title');
     MyDialog.showModal();
-}
-
-function Deletnote(id) {
-  let Deleting_noteid = Notes.find( n => n.id == id);
-  
 }
 
 //clearing fields

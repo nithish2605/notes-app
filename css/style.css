@@ -9,6 +9,7 @@
     font-family: "Roboto", sans-serif;
     --color-light: #f4f7ff;
     --color-dark: #000;
+    --color-grey:#6d6b6b;
     --color-blue: #256EFF;
     --color-blue-hover: #0753eb;
 }
@@ -17,13 +18,23 @@ body {
     background-color: var(--color-light);
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
+header{
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 0rem;
     color: var(--color-dark);
+}
+
+header h1{
+    text-align: center;
+    padding-bottom: 0.8rem;
+    color: var(--color-blue);
+}
+
+header span{
+    color: var(--color-grey);
+    display: flex;
+    justify-content: center;
 }
 
 .main-container {
