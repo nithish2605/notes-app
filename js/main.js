@@ -8,6 +8,14 @@ let btn_close_dialog = document.querySelector('.btn-close-dialog');
 let close_dialog = document.querySelector('.close-dialog');
 let btn_submit = document.querySelector('.btn-submit');
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    //To display already added  notes.
+    Notes = JSON.parse(localStorage.getItem("notes")) || [];
+    rendrenotes();
+});
+
+
 //To show the dialog
 btnAdd_notes.addEventListener('click', () => {
     MyDialog.showModal();
@@ -16,11 +24,15 @@ btnAdd_notes.addEventListener('click', () => {
 //To close the dialog
 btn_close_dialog.addEventListener('click', (e) => {
     e.preventDefault();
+    ClearAll();
     MyDialog.close();
 });
 
 //To close the dialog
-close_dialog.addEventListener('click', () => MyDialog.close());
+close_dialog.addEventListener('click', () => {
+    ClearAll();
+    MyDialog.close();
+});
 
 //To add a note
 btn_submit.addEventListener('click', (e) => {
@@ -36,47 +48,80 @@ btn_submit.addEventListener('click', (e) => {
     };
 
     if (title == "" && desc == "") {
-        alert("enter all the fields")
+        alert("enter all the fields");
+        return;
+    }
+
+    if (existing_id) {
+        let index = Notes.findIndex(n => n.id == existing_id);
+        Notes[index].title = title;
+        Notes[index].desc = desc;
+        existing_id = null;
     }
     else {
         Notes.push(newNote);
-        note_title.value = "";
-        note_desc.value = "";
-        MyDialog.close();
-        localStorage.setItem("notes", JSON.stringify(Notes));
-        rendrenotes();
     }
+    ClearAll();
+    MyDialog.close();
+    localStorage.setItem("notes", JSON.stringify(Notes));
+    rendrenotes();
 });
 
 function rendrenotes() {
     main_container.innerHTML = "";
-
     Notes.forEach(Note => {
         main_container.innerHTML += `<div class="note-container">
            <div class = "note-header">
                 <h3 class="note-title">${Note.title}</h3>
                 <div class="modify-container">
-                    <i class="fa-solid fa-pen-to-square" id="edit"></i>
-                    <i class="fa-solid fa-trash"></i>
+                    <i class="fa-solid fa-pen-to-square" data-id="${Note.id}"></i>
+                    <i class="fa-solid fa-trash del" data-id="${Note.id}"></i>
                 </div>
             </div>
                 <p class="desc">${Note.desc}</p>
         </div>`;
     });
+    editnote();
+
+    var del_note = document.querySelectorAll('.del');
+    del_note.forEach(note => {
+        note.addEventListener('click', () => {
+            let id = note.getAttribute('data-id');
+            Deletnote(id);
+        });
+    });
 }
 
-
-document.addEventListener("DOMContentLoaded", () => {
-    //To display already added  notes.
-    Notes = JSON.parse(localStorage.getItem("notes")) || [];
-    rendrenotes();
-
-    //To modify the notes
-    var btn_edit = document.querySelector('#edit');
-    btn_edit.addEventListener('click', () => {
-        // Notes.filter(ele => ele.id === this.id);
-        // note_title.innerHTML = this.title;
-        MyDialog.showModal();
+//To modify the notes
+function editnote() {
+    var btn_edit = document.querySelectorAll('.fa-pen-to-square');
+    btn_edit.forEach(btn => {
+        btn.addEventListener('click', () => {
+            let id = btn.getAttribute('data-id');
+            StartEditNote(id);
+        })
     });
-});
+}
 
+let existing_id = null;
+
+function StartEditNote(id) {
+    existing_id = id;
+
+    let curr_Note = Notes.find(n => n.id == id);
+    note_title.value = curr_Note.title;
+    note_desc.value = curr_Note.desc;
+    // let dialog_title = document.querySelector('.dialog-title');
+    MyDialog.showModal();
+}
+
+function Deletnote(id) {
+  let Deleting_noteid = Notes.find( n => n.id == id);
+  
+}
+
+//clearing fields
+function ClearAll() {
+    note_title.value = "";
+    note_desc.value = "";
+}

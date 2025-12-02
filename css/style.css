@@ -40,9 +40,10 @@ dialog {
     max-width: 90%;
     padding: 2rem;
     border-radius: 1rem;
+    box-shadow: rgba(51, 51, 231, 0.509) 0px 7px 29px 0px;
 }
 
-dialog[open] {
+dialog[open]{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -92,6 +93,7 @@ textarea{
     color: var(--color-dark);
     padding: 2rem 1rem 0rem 2rem;
     border-radius: 1rem;
+    overflow: hidden;
 }
 
 .btn-add,.btn-submit{
