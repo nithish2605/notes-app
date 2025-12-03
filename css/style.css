@@ -2,36 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+     font-family: "Cabin", sans-serif;
 }
 
 :root {
-    font-family: "Roboto", sans-serif;
+     font-family: "Cabin", sans-serif;
     --color-light: #f4f7ff;
     --color-dark: #000;
-    --color-grey:#6d6b6b;
-    --color-blue: #256EFF;
-    --color-blue-hover: #0753eb;
+    --color-grey: #829399;
+    --color-blue: #357DED;
+    --color-blue-hover: #2775f1;
 }
 
 body {
     background-color: var(--color-light);
 }
 
-header{
+header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 0rem;
     color: var(--color-dark);
 }
 
-header h1{
+header h1 {
     text-align: center;
     padding-bottom: 0.8rem;
     color: var(--color-blue);
 }
 
-header span{
+header h4 {
     color: var(--color-grey);
     display: flex;
     justify-content: center;
@@ -42,7 +42,7 @@ header span{
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    padding: 0rem 2rem;
+    /* padding: 0rem 2rem; */
 }
 
 dialog {
@@ -54,7 +54,7 @@ dialog {
     box-shadow: rgba(51, 51, 231, 0.509) 0px 7px 29px 0px;
 }
 
-dialog[open]{
+dialog[open] {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -72,25 +72,26 @@ dialog[open]{
     cursor: pointer;
 }
 
-.form-group{
+.form-group {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin-bottom: 1.5rem;
 }
 
-.form-group label{
+.form-group label {
     margin-bottom: 1rem;
 }
 
-.form-group input{
+.form-group input {
     padding: 0.8rem 0rem 0.8rem 0.5rem;
 }
-textarea{
-    padding: 0.5rem 0 0 0.5rem ;
+
+textarea {
+    padding: 0.5rem 0 0 0.5rem;
 }
 
-.action-btn{
+.action-btn {
     display: flex;
     justify-content: end;
     gap: 10px;
@@ -107,7 +108,8 @@ textarea{
     overflow: hidden;
 }
 
-.btn-add,.btn-submit{
+.btn-add,
+.btn-submit {
     background-color: var(--color-blue);
     font-weight: 700;
     color: #fff;
@@ -122,7 +124,8 @@ textarea{
     }
 }
 
-.btn-close-dialog{
+
+.btn-close-dialog {
     background-color: var(--color-dark);
     font-weight: 700;
     color: #fff;
@@ -140,16 +143,59 @@ textarea{
     margin-left: 1rem;
 }
 
-.note-header{
+.note-header {
     display: flex;
     justify-content: space-between;
 }
 
-.modify-container{  
-   display: flex;
-   gap: 0.8rem;
+.modify-container {
+    display: flex;
+    gap: 0.8rem;
 }
 
-.fa-pen-to-square,.fa-trash{
-    cursor: pointer ;
+.fa-pen-to-square,
+.fa-trash {
+    cursor: pointer;
+}
+
+.action-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--color-grey);
+    border-radius: 0.4rem;
+    font-size: 1rem;
+
+    &:focus {
+        border: none;
+    }
+}
+
+.action-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0rem;
+}
+
+.tag-tabs {
+    display: flex;
+    list-style: none;
+    gap: 5rem;
+    font-weight: 500;
+}
+
+.tag-tabs li {
+    padding:0.5rem 1.5rem;
+}
+
+.tag-tabs li.active{
+    background-color: var(--color-blue);
+    color: var(--color-light);
+    border-radius: 0.5rem;
 }
