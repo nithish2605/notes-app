@@ -2,16 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-     font-family: "Cabin", sans-serif;
+      font-family: "Noto Sans", sans-serif;
 }
 
 :root {
-     font-family: "Cabin", sans-serif;
+       font-family: "Noto Sans", sans-serif;
     --color-light: #f4f7ff;
     --color-dark: #000;
     --color-grey: #829399;
+    --color-text-grey:#788270;
     --color-blue: #357DED;
-    --color-blue-hover: #2775f1;
+    --color-blue-hover: #075ade;
 }
 
 body {
@@ -32,7 +33,7 @@ header h1 {
 }
 
 header h4 {
-    color: var(--color-grey);
+    color: var(--color-dark);
     display: flex;
     justify-content: center;
 }
@@ -87,8 +88,21 @@ dialog[open] {
     padding: 0.8rem 0rem 0.8rem 0.5rem;
 }
 
+
 textarea {
     padding: 0.5rem 0 0 0.5rem;
+}
+
+#note-title,#note-desc{
+    border: 1px solid var(--color-grey);
+    border-radius: 0.4rem;
+}
+.desc{
+    color: var(--color-text-grey);
+}
+#note-tags{
+    padding: 0.8rem;
+    border-radius: 0.4rem;
 }
 
 .action-btn {
@@ -98,14 +112,13 @@ textarea {
 }
 
 .note-container {
-    width: 250px;
-    box-shadow: rgba(101, 101, 222, 0.34) 0px 7px 29px 0px;
+    width: 350px;
+    box-shadow: rgba(189, 189, 189, 0.925) 0px 7px 29px 0px;
     margin: 0rem 2rem 2rem 0rem;
-    min-height: 15rem;
+    min-height: 9rem;
     color: var(--color-dark);
-    padding: 2rem 1rem 0rem 2rem;
-    border-radius: 1rem;
-    overflow: hidden;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
 }
 
 .btn-add,
@@ -139,10 +152,6 @@ textarea {
     margin-bottom: 1rem;
 }
 
-.desc {
-    margin-left: 1rem;
-}
-
 .note-header {
     display: flex;
     justify-content: space-between;
@@ -150,7 +159,7 @@ textarea {
 
 .modify-container {
     display: flex;
-    gap: 0.8rem;
+    gap: 1.6rem;
 }
 
 .fa-pen-to-square,
@@ -161,7 +170,6 @@ textarea {
 .action-wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
 }
 
 .search-bar {
@@ -170,7 +178,6 @@ textarea {
     border: 2px solid var(--color-grey);
     border-radius: 0.4rem;
     font-size: 1rem;
-
     &:focus {
         border: none;
     }
@@ -180,7 +187,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0rem;
+    margin: 1rem 0rem 2rem 0rem;
 }
 
 .tag-tabs {
@@ -198,4 +205,8 @@ textarea {
     background-color: var(--color-blue);
     color: var(--color-light);
     border-radius: 0.5rem;
+}
+
+.del,.fa-pencil{
+    color: var(--color-grey);
 }

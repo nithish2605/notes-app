@@ -73,7 +73,7 @@ function rendernotes() {
            <div class = "note-header">
                 <h3 class="note-title">${Note.title}</h3>
                 <div class="modify-container">
-                    <i class="fa-solid fa-pen-to-square" data-id="${Note.id}"></i>
+                    <i class="fa-solid fa-pencil" data-id="${Note.id}"></i>
                     <i class="fa-solid fa-trash del" data-id="${Note.id}"></i>
                 </div>
             </div>
@@ -97,7 +97,7 @@ function rendernotes() {
 
 //To modify the notes
 function editnote() {
-    var btn_edit = document.querySelectorAll('.fa-pen-to-square');
+    var btn_edit = document.querySelectorAll('.fa-pencil');
     btn_edit.forEach(btn => {
         btn.addEventListener('click', () => {
             let id = btn.getAttribute('data-id');
