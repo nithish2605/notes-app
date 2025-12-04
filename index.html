@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- font linking here -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <!-- font-awesome linking here -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -24,17 +25,17 @@
 
     <div class="action-wrapper">
         <input type="text" class="search-bar" placeholder="Search your Notes here">
-        
+
         <div class="action-container">
             <ul class="tag-tabs">
                 <li class="active">All</li>
                 <li>Home</li>
                 <li>Work</li>
-                <li>Professional</li>
+                <li>Reminders</li>
             </ul>
             <button class="btn-add"> Add Note <i class="fa-solid fa-plus"></i></button>
         </div>
-        </div>
+    </div>
 
     <div class="main-container"></div>
 
@@ -49,19 +50,25 @@
                 <input type="text" id="note-title">
             </div>
 
-             <div class="form-group">
-                <label for="note-tags">Tags</label>
-                <select name="note-tags-filter" id="note-tags">
-                    <option value="">Home</option>
-                    <option value="">Work</option>
-                    <option value="">Professional</option>
-                </select>
-            </div>
-
             <div class="form-group">
                 <label for="note-desc">Description</label>
                 <textarea type="text" id="note-desc" rows="5"></textarea>
             </div>
+
+     
+            <div class="form-group">
+                <label for="note-tags" id="tags-radio">Tags</label>
+                <div class="category-tabs">
+                    <input type="radio" name="category" id="home" value="home" >
+                    <label for="home" class="tab">Home</label>
+                    <input type="radio" name="category" id="work" value="work">
+                    <label for="work" class="tab">Work</label>
+                    <input type="radio" name="category" id="reminders" value="reminders">
+                    <label for="reminders" class="tab">Reminders</label>
+                </div>
+            </div>
+
+
             <div class="action-btn">
                 <button type="button" class="btn-close-dialog">Cancel</button>
                 <button class="btn-submit">Add Note</button>

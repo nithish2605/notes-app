@@ -48,7 +48,7 @@ header h4 {
 
 dialog {
     border: none;
-    width: 400px;
+    width: 460px;
     max-width: 90%;
     padding: 2rem;
     border-radius: 1rem;
@@ -99,10 +99,6 @@ textarea {
 }
 .desc{
     color: var(--color-text-grey);
-}
-#note-tags{
-    padding: 0.8rem;
-    border-radius: 0.4rem;
 }
 
 .action-btn {
@@ -162,7 +158,7 @@ textarea {
     gap: 1.6rem;
 }
 
-.fa-pen-to-square,
+.fa-pencil,
 .fa-trash {
     cursor: pointer;
 }
@@ -175,12 +171,9 @@ textarea {
 .search-bar {
     width: 100%;
     padding: 1rem;
-    border: 2px solid var(--color-grey);
+    border: 0.15rem solid var(--color-grey);
     border-radius: 0.4rem;
     font-size: 1rem;
-    &:focus {
-        border: none;
-    }
 }
 
 .action-container {
@@ -195,6 +188,7 @@ textarea {
     list-style: none;
     gap: 5rem;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .tag-tabs li {
@@ -209,4 +203,20 @@ textarea {
 
 .del,.fa-pencil{
     color: var(--color-grey);
+}
+
+.category-tabs input[type="radio"]{
+    appearance: none;
+}
+
+.category-tabs .tab{
+    border: 0.15rem solid var(--color-blue);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.category-tabs input[type="radio"]:checked + .tab{
+    background-color: var(--color-blue);
+    color: var(--color-light);
 }
