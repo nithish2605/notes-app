@@ -12,6 +12,7 @@
     --color-grey: #829399;
     --color-text-grey:#788270;
     --color-blue: #357DED;
+    --color-light-blue: #DAF0EE;
     --color-blue-hover: #075ade;
 }
 
@@ -82,10 +83,12 @@ dialog[open] {
 
 .form-group label {
     margin-bottom: 1rem;
+    color: var(--color-text-grey);
 }
 
 .form-group input {
     padding: 0.8rem 0rem 0.8rem 0.5rem;
+    font-weight: 500;
 }
 
 
@@ -99,6 +102,11 @@ textarea {
 }
 .desc{
     color: var(--color-text-grey);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.category{
+    margin-top:1rem ;
 }
 
 .action-btn {
@@ -171,7 +179,7 @@ textarea {
 .search-bar {
     width: 100%;
     padding: 1rem;
-    border: 0.15rem solid var(--color-grey);
+    border: 0.1rem solid var(--color-grey);
     border-radius: 0.4rem;
     font-size: 1rem;
 }
@@ -206,17 +214,22 @@ textarea {
 }
 
 .category-tabs input[type="radio"]{
-    appearance: none;
+    display: none;
 }
 
 .category-tabs .tab{
-    border: 0.15rem solid var(--color-blue);
+    border: none;
+    background-color: var(--color-light-blue);
+    color: var(--color-blue);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     cursor: pointer;
+    font-size: 0.9rem;
 }
-
+.category-tabs .tab i{
+    margin-right: 0.4rem;
+}
 .category-tabs input[type="radio"]:checked + .tab{
-    background-color: var(--color-blue);
+    background-color:var(--color-blue);
     color: var(--color-light);
 }

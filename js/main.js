@@ -8,13 +8,9 @@ let btn_close_dialog = document.querySelector('.btn-close-dialog');
 let close_dialog = document.querySelector('.close-dialog');
 let btn_submit = document.querySelector('.btn-submit');
 
-
 //To display already added  notes when it  is refreshed also
-document.addEventListener("DOMContentLoaded", () => {
     Notes = JSON.parse(localStorage.getItem("notes")) || [];
     rendernotes();
-});
-
 
 //To show the dialog
 btnAdd_notes.addEventListener('click', () => {
@@ -42,24 +38,24 @@ btn_submit.addEventListener('click', (e) => {
     let desc = note_desc.value.trim();
 
     let selectedCategory = document.querySelector('input[name="category"]:checked');
-    if(!selectedCategory){
-     alert("please select a category");
-     return;
-    }
     let cat_tag = selectedCategory ? selectedCategory.value : "";
-    
-    if (title === "" && desc === "") {
+
+    if (title == "" || desc == "") {
         alert("enter all the fields");
         return;
     }
 
+    if (!selectedCategory) {
+        alert("please select a category");
+        return;
+    }
     let newNote = {
         id: Date.now(),
         title: title,
         desc: desc,
         category: cat_tag
     };
-    
+
     if (existing_id) {
         let index = Notes.findIndex(n => n.id == existing_id);
         Notes[index].title = title;
@@ -84,12 +80,13 @@ function rendernotes() {
                 <div class="modify-container">
                     <i class="fa-solid fa-pencil" data-id="${Note.id}"></i>
                     <i class="fa-solid fa-trash del" data-id="${Note.id}"></i>
-                    
                 </div>
             </div>
-                <p class="desc">${Note.desc}</p>
+                <small class="desc">${Note.desc}</small>
+                <p class="category">${Note.category}</p>
         </div>`;
     });
+    console.log(Notes);
     editnote();
 
     //To delete a Note
