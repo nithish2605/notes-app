@@ -18,7 +18,7 @@
 
 body {
     background-color: var(--color-light);
-    padding: 0rem 1rem;
+    padding: 0rem 1rem 1rem 1rem;
 }
 
 header {
@@ -83,7 +83,6 @@ dialog[open] {
 }
 
 .form-group label {
-    margin-bottom: 1rem;
     color: var(--color-text-grey);
 }
 
@@ -284,6 +283,12 @@ textarea {
 @media (max-width:576px) {
     .category-tag {
         font-size: 0.6rem;
+    }
+
+    .category-tabs{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
     }
 
     .action-container {
