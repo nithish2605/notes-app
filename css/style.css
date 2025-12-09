@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Noto Sans", sans-serif;
 }
 
 :root {
@@ -14,6 +13,17 @@
     --color-blue: #357DED;
     --color-light-blue: #DAF0EE;
     --color-blue-hover: #075ade;
+    font-size: clamp(0.8rem,1.5vw,0.9rem);
+}
+
+h1{
+    font-size: clamp(1.5rem,3vw,3rem);
+}
+h3{
+    font-size: clamp(1rem,3vw,1.1rem);
+}
+h4{
+    font-size: clamp(0.8rem,3vw,1rem);
 }
 
 body {
@@ -25,6 +35,7 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 0rem;
+    padding: min(5%,3rem);
     color: var(--color-dark);
 }
 
@@ -44,7 +55,7 @@ header h4 {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
     gap: 1rem;
 }
 
@@ -84,6 +95,7 @@ dialog[open] {
 
 .form-group label {
     color: var(--color-text-grey);
+       margin-bottom:1rem;
 }
 
 .form-group input {
@@ -121,10 +133,10 @@ textarea {
 }
 
 .note-container {
-    /* width: 350px; */
+    width: 100%;
+    max-width: 350px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     background-color: #ffffff;
-    /* margin: 0rem 2rem 2rem 0rem; */
     color: var(--color-dark);
     padding: 1.25rem;
     border-radius: 0.5rem;
@@ -185,7 +197,6 @@ textarea {
     padding: 1rem;
     border: 0.1rem solid var(--color-grey);
     border-radius: 0.4rem;
-    font-size: 1rem;
 }
 
 .action-container {
@@ -229,7 +240,6 @@ textarea {
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     cursor: pointer;
-    font-size: 0.9rem;
 }
 
 .category-tabs .tab i {
@@ -264,50 +274,23 @@ textarea {
     .tag-tabs {
         gap: 0rem;
     }
-
-    .note-title {
-        font-size: 0.8rem;
-    }
-
-    .desc {
-        font-size: 0.7rem;
-    }
 }
 
-@media (max-width:991px) {
-    .main-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 @media (max-width:576px) {
-    .category-tag {
-        font-size: 0.6rem;
-    }
-
     .category-tabs{
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
     }
-
     .action-container {
         flex-direction: column-reverse;
         gap: 1rem;
-        font-size: 0.8rem;
     }
-
     .note-container {
         padding: 1rem;
     }
-
-    .note-title {
-        font-size: 0.6rem;
-    }
-
     .modify-container{
         gap: 1rem;
-        font-size: 0.8rem;
     }
-
 }

@@ -47,7 +47,7 @@ note_title.addEventListener('input', () => {
 
     // let len_noteTitle = note_title.value.length;
     if (note_title.value.length > 18) {
-        note_title.value = note_title.value.slice(0,18);
+        note_title.value = note_title.value.slice(0, 18);
         alert("Max limit is 18characters");
     }
 });
@@ -169,11 +169,10 @@ document.querySelector('.tag-tabs').addEventListener('click', (e) => {
             t.classList.remove('active');
         })
         tabelement.classList.add('active');
+        const tabname = tabelement.innerText.toLowerCase().trim();
+        if (tabname === "all") rendernotes();
+        else filterNotes(tabname);
     }
-
-    const tabname = tabelement.innerText.toLowerCase().trim();
-    if (tabname === "all") rendernotes();
-    else filterNotes(tabname);
 })
 
 
