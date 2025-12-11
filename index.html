@@ -17,11 +17,21 @@
 
 </head>
 
-<body>
+<body class="">
     <header>
         <h1>Nithish Notes.</h1>
         <h4>Store Your Thoughts and Ideas in Style</h4>
     </header>
+
+    <div class="info-box">
+        <p><i class="fa-solid fa-magnifying-glass" style="margin-right: .5rem;"></i>Search</p>
+        <div class="toggle-container">
+            <p><i class="fa-regular fa-moon"></i></p>
+            <h4 class="toggle-btn"></h4>
+        </div>
+
+    </div>
+
 
     <div class="action-wrapper">
         <input type="text" class="search-bar" placeholder="Search your Notes here">
@@ -55,11 +65,11 @@
                 <textarea type="text" id="note-desc" rows="5"></textarea>
             </div>
 
-     
+
             <div class="form-group">
                 <label for="note-tags" id="tags-radio">Tags</label>
                 <div class="category-tabs">
-                    <input type="radio" name="category" id="home" value="home" >
+                    <input type="radio" name="category" id="home" value="home">
                     <label for="home" class="tab"><i class="fa-solid fa-house"></i>Home</label>
                     <input type="radio" name="category" id="work" value="work">
                     <label for="work" class="tab"><i class="fa-solid fa-business-time"></i>Work</label>

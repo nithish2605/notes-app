@@ -8,22 +8,91 @@
     font-family: "Noto Sans", sans-serif;
     --color-light: #f4f7ff;
     --color-dark: #000;
+    --text-light: #ffffff;
     --color-grey: #829399;
     --color-text-grey: #788270;
     --color-blue: #357DED;
     --color-light-blue: #DAF0EE;
     --color-blue-hover: #075ade;
-    font-size: clamp(0.8rem,1.5vw,0.9rem);
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
 }
 
-h1{
-    font-size: clamp(1.5rem,3vw,3rem);
+.dark-mode {
+    --color-light: #0C0C0C;
+    --color-dark: #f4f7ff;
+    --text-dark: #000;
+    --color-grey: #829399;
+    --color-text-grey: #788270;
+    --color-blue: #357DED;
+    --color-light-blue: #DAF0EE;
+    --color-blue-hover: #075ade;
 }
-h3{
-    font-size: clamp(1rem,3vw,1.1rem);
+
+
+.info-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+
 }
-h4{
-    font-size: clamp(0.8rem,3vw,1rem);
+
+.toggle-btn {
+    background-color: var(--color-light-blue);
+    height: 2rem;
+    width: 4rem;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-btn::before {
+    position: absolute;
+    content: "";
+    height: 1.8rem;
+    width: 1.8rem;
+    background-color: #fff;
+    border-radius: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .3s;
+}
+
+.toggle-btn.clicked::before {
+    top: 4%;
+    right: 45%;
+    transform: translateX(100%);
+}
+
+.toggle-btn.clicked {
+    background-color: #075ade;
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1.5rem;
+    color: var(--color-dark);
+}
+
+
+
+
+h1 {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+h3 {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+}
+
+h4 {
+    font-size: clamp(0.8rem, 3vw, 1rem);
 }
 
 body {
@@ -35,7 +104,7 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 0rem;
-    padding: min(5%,3rem);
+    padding: min(5%, 3rem);
     color: var(--color-dark);
 }
 
@@ -55,7 +124,7 @@ header h4 {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
 
@@ -95,7 +164,7 @@ dialog[open] {
 
 .form-group label {
     color: var(--color-text-grey);
-       margin-bottom:1rem;
+    margin-bottom: 1rem;
 }
 
 .form-group input {
@@ -133,10 +202,8 @@ textarea {
 }
 
 .note-container {
-    /* width: 100%;
-    max-width: 350px; */
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    background-color: #ffffff;
+    background-color: #F2F5FF;
     color: var(--color-dark);
     padding: 1.25rem;
     border-radius: 0.5rem;
@@ -175,6 +242,7 @@ textarea {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    color: var(--text-dark);
 }
 
 .modify-container {
@@ -212,6 +280,7 @@ textarea {
     gap: 5rem;
     font-weight: 500;
     cursor: pointer;
+    color: var(--color-dark);
 }
 
 .tag-tabs li {
@@ -253,7 +322,7 @@ textarea {
 
 .category-tag {
     background-color: var(--color-blue);
-    color: var(--color-light);
+    color: var(--text-light);
     width: fit-content;
     padding: 0.5rem 1rem;
     border-radius: 1rem;
@@ -261,13 +330,6 @@ textarea {
 
 .category-tag i {
     margin-right: 0.8rem;
-}
-
-.error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
 }
 
 @media (max-width:768px) {
@@ -278,19 +340,26 @@ textarea {
 
 
 @media (max-width:576px) {
-    .category-tabs{
+    .category-tabs {
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
     }
+
     .action-container {
         flex-direction: column-reverse;
         gap: 1rem;
     }
+
     .note-container {
         padding: 1rem;
     }
-    .modify-container{
+
+    .modify-container {
         gap: 1rem;
+    }
+
+    .main-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

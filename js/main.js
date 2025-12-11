@@ -175,6 +175,10 @@ document.querySelector('.tag-tabs').addEventListener('click', (e) => {
     }
 })
 
+document.querySelector('.toggle-btn').addEventListener('click',()=>{
+     document.querySelector('.toggle-btn').classList.toggle('clicked');
+     document.querySelector('body').classList.toggle('dark-mode');
+});
 
 //clearing fields
 function ClearAll() {
